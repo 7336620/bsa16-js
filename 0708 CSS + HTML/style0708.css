@@ -24,7 +24,7 @@ body {
     height: 400px;
 }
 
-/*Шапка макета*/
+/* header */
 header{
     height:100px;
     width: 100%;
@@ -76,16 +76,16 @@ header:before {
 	background: darkgreen;
 }
 
-/*  */
+/* content */
 
 article{
     height:400px;
-    background: #ccc ;/* #e3e8cc;  Цвет фона */
-    border: solid 1px black; /* Параметры рамки */
-    margin-left: 250px; /* Отступ слева */
+    background: #ccc 
+    border: solid 1px black; 
+    margin-left: 250px; 
 }
 
-/* Первый блок */
+/* upper part  */
 #upper{
     height:250px;
     border: 1px solid black;
@@ -113,7 +113,7 @@ article{
 }
 
 
-/* Второй блок*/
+/* lower part of content */
 #lower{
     height:146px;
     border: 1px solid black;
@@ -142,9 +142,7 @@ article{
 
 
 }
-/* Футер макета */
-
-/* */
+/* footer */
 footer {
 	text-align: center;
 }
@@ -198,8 +196,7 @@ header, #mid-section, footer {
 }
 
 
-/* Ленточка */
-
+/* classes for creating ribbons */
  .ribbon {
 	position: relative;
 }
@@ -218,7 +215,6 @@ header, #mid-section, footer {
 	transform: rotate(45deg);
 } 
 
-
 .wrapper {
   position: relative;
   z-index: 90;
@@ -232,35 +228,3 @@ header, #mid-section, footer {
   top: -3px;
   right: -3px;
 }
-/*
-.ribbon {
-  -webkit-transform: rotate(45deg);
-  -moz-transform:    rotate(45deg);
-  -ms-transform:     rotate(45deg);
-  -o-transform:      rotate(45deg);
-  position: relative;
-  padding: 7px 0;
-  left: -5px;
-  top: 15px;
-  width: 120px;
-  background-color: #BFDC7A;
-
-  color: #6a6340;
-
-}
-
-.ribbon:before, .ribbon:after {
-  content: "";
-  border-top:   3px solid #6e8900;   
-  border-left:  3px solid transparent;
-  border-right: 3px solid transparent;
-  position:absolute;
-  bottom: -3px;
-}
-
-.ribbon:before {
-  left: 0;
-}
-.ribbon:after {
-  right: 0;
-}*/
