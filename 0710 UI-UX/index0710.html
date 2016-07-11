@@ -1,0 +1,99 @@
+<!doctype html>
+<!--
+BSA16 UI/UX
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSA16 UI/UX</title>
+<link href='http://fonts.googleapis.com/css?family=Petit+Formal+Script|Headland+One|Orienta' rel='stylesheet' type='text/css'>
+<link href="css/styles0710.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script>
+	 // DOM ready
+	 $(function() {
+	   
+      // Create the dropdown base
+      $("<select />").appendTo("nav");
+      
+      // Create default option "Go to..."
+      $("<option />", {
+         "selected": "selected",
+         "value"   : "",
+         "text"    : "Select a page"
+      }).appendTo("nav select");
+      
+      // Populate dropdown with menu items
+      $("nav a").each(function() {
+       var el = $(this);
+       $("<option />", {
+           "value"   : el.attr("href"),
+           "text"    : el.text()
+       }).appendTo("nav select");
+      });
+      
+	   // To make dropdown actually work
+      $("nav select").change(function() {
+        window.location = $(this).find("option:selected").val();
+      });
+	 
+	 });
+	</script>
+</head>
+<body>
+<header>
+	<div><a href="#" class="button">Find</a>
+	<input></input> </div>
+	
+    <h1><a href="">SNAP</a></h1>
+    <h3>the story of a bull-terrier</h3>
+</header>
+<div class="wrapperContainer">
+    <nav>
+        <ul>
+            <li class="active"><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="wrapper">
+        <div class="contentBody">
+
+            <h2>SNAP . THE STORY OF A BULL-TERRIER</h2>
+            <p>
+                It was dusk on Hallowe'en when first I saw him. Early in the
+morning I had received a telegram from my college chum Jack:
+"Lest we forget. Am sending you a remarkable pup. Be polite to
+him; it's safer." It would have been just like Jack to have sent
+an infernal machine or a Skunk rampant and called it a pup, so I
+awaited the hamper with curiosity <a href="#">...</a> 
+            </p>
+            <ul>
+                <li>Though not a regular traveller, I was ordered out on the road in
+the autumn, and then Snap and the landlady were left together,
+with unfortunate developments. Contempt on his part--fear on
+hers; and hate on both<a href="#">...</a> </li>
+                <li>My next meeting with Gingersnap was not as different from the
+first as one might have expected. He jumped on me, made much
+vigorous pretense to bite, and growled frequently, but it was a
+deep-chested growl and his stump waggled hard<a href="#">...</a> </li>
+            </ul>
+        </div>
+        <div class="sidebar">
+            <h2>Gingersnap</h2>
+            <img src="images/pictSNAP.jpg" alt="pic">
+            <a href="">more...</a>
+        </div> 
+        <div class="clearfloat"></div>
+    </div>
+    <footer>
+        <p class="copyright">
+            Copyright &copy; <a href="#">Ernest Thompson Seton</a>
+        </p>
+    </footer>
+</div>
+
+</body>
+</html>

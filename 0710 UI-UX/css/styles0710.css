@@ -1,0 +1,241 @@
+/*
+
+*/
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	font-family: 'Orienta', sans-serif;
+	font-size:100%;
+	background:#1f3602 url(../images/siteBackground.png) repeat fixed center top;
+	margin: 0;
+	padding: 0;
+	color: #f9f9f9;
+	position:relative;
+	text-shadow:0 0px, 1px 1px #1e3500;
+}
+
+header {
+	background:url('../images/pict.jpg') no-repeat fixed left top;
+}
+
+/* */
+header input{
+	position:relative;
+	float: right;
+	border-radius:3px;
+	height: 25px;
+	margin-top:2px;
+	background-repeat:no-repeat;
+	background-image:url('../images/findIcon.png');
+	padding-left:25px;
+	outline:none; 
+	font-family: 'Headland One', serif;
+}
+
+header input::before{
+	position:absolute;
+	font-family: 'Headland One', serif;	
+}
+
+
+a.button {
+	font-size:14px;
+	padding:5px;
+	margin-left: 2%;
+	margin-right: 3%;
+	float:right;
+	display: inline-block;
+	color: white;
+	text-decoration: none;
+	user-select: none;
+	outline: none;
+	border: 2px solid;
+	border-radius: 4px;
+	transition: 0.2s;
+	background: rgba(0,0,0,.2);
+		font-family: 'Headland One', serif;
+} 
+a.button:hover { background: rgba(255,255,255,.2); }
+a.button:active { background: white; }
+
+/* */
+
+h1 {
+	margin:10px 0 280px 0;
+}
+h1 a {
+	font-size:1.9em; 
+	font-family: 'Petit Formal Script', cursive;
+	text-decoration:none;
+	color:#ffffff;
+	font-weight: bold;
+}
+h1 a:hover {
+	text-decoration:none;
+}
+
+
+header h3 {
+	font-size:1.6em;
+	font-weight:inherit;
+	font-family: 'Headland One', serif;
+	color:	rgba(255,255,255,.2) ;
+	width: 95% ;
+}
+
+
+/* анимация с @keyframes */
+header h3:hover{
+	position: relative;
+	display: inline-block;
+	margin-left:5%;
+	animation: run 5s ease-in infinite;
+}
+
+@keyframes run{
+	0% {left:-90px;}
+	50%{left: 5px;}
+	100%{left: -90px;}
+}
+
+
+
+
+h2 {
+	font-size:1.7em;
+	font-weight:inherit;
+	margin:0 0 10px 0;
+	font-family: 'Headland One', serif;
+	color:	#d7f145;
+}
+
+a img { 
+	border: none;
+}
+a {
+	color: #d7f145;
+	text-decoration: underline; 
+}
+a:hover { 
+	color: rgba(255,255,255,.2);
+	text-decoration: none;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	width: auto;	
+}
+p {
+	line-height:140%;
+}
+.wrapperContainer {
+	background:none repeat scroll 0 0 rgba(30, 53, 0, 0.5);
+}
+.wrapper, header { 
+	width:93.75%; /* 960px/1024px  */
+	margin:0 auto;
+}
+.contentBody {
+	width:72.916666666666666666666666666667%;
+	float:left;
+}
+.contentBody ul {
+	margin:30px 0 0 0;
+}
+.contentBody li {
+	list-style:none;
+	padding:10px 0 10px 20px;
+}
+.sidebar {
+	width:22.916666666666666666666666666667%;
+	float:right;
+}
+footer {
+	background:rgba(255,255,255,.2) ; 
+	margin-top:30px;
+	text-align:center;
+	padding:30px 10px;
+	border-top:1px solid #355100;
+}
+footer p {
+	font-size:0.8571428571428571em; /* 12px/14px */
+}
+.clearfloat { 
+	clear:both;
+	height:0;
+	line-height: 0px;
+}
+
+/* main menu */
+
+nav {
+	background: rgba(255,255,255,.2) ; 
+	box-shadow: 0 3px 6px rgba(30, 53, 0, 1);
+	text-align:center;
+	padding:30px 0;
+	margin-bottom:20px;
+}
+nav li {
+	list-style:none;
+	display:inline;
+}
+nav li a {
+	font-family: 'Headland One', serif;
+	text-shadow: none;
+	text-decoration: none;
+	padding:30px 20px;
+	font-weight:bold;
+	color:#536e29;
+}
+nav li a:hover {
+	color:#ffffff;
+	text-decoration:none;
+}
+nav .active a {
+	color:#ffffff;
+	background:none repeat scroll 0 0 rgba(215, 241, 69, 0.25);
+}
+nav select {
+      display: none;
+    }
+select {
+	width:200px;
+}
+
+/*  Media Queries */
+
+/* for 980px or less */
+@media screen and (max-width: 980px) {
+	.wrapper, header {
+		width:93.75%; /* 980px/1024px  */
+		margin:0 auto;
+	}
+}
+/* for 768px or less */
+@media screen and (max-width: 768px) {
+	nav ul { display: none; }
+	nav select { display: inline-block; }
+	.contentBody, .sidebar {
+		float:none;
+		width:auto;
+	}
+	.contentBody {
+		border-bottom:1px solid #d7f145;
+    	box-shadow: 0 1px #1e3500;
+		margin-bottom:30px;
+		padding-bottom:30px;
+	}
+	.sidebar img {
+		text-align:center;
+		width:100%;
+	}
+	h1 {
+		margin:50px 0 50px 0;
+	}
+}
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+	
+}
