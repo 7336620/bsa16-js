@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var connect = require('gulp-connect');
 var jade = require('gulp-jade');
 var rjs = require('gulp-requirejs');
-// add required packages
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 
@@ -22,7 +21,7 @@ gulp.task('jade', function() {
 });
 
 gulp.task('sass', function() {
-	// implement sass task
+	
 		gulp.src('src/sass/*.sass')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(gulp.dest('dist/css'))
@@ -30,7 +29,7 @@ gulp.task('sass', function() {
 });
 
 gulp.task('requireJS', function() {
-	// implement bundle.js file uglification
+	
 	rjs({
 		baseUrl: 'src/js',
 		name: '../../node_modules/almond/almond',
@@ -46,9 +45,10 @@ gulp.task('requireJS', function() {
 
 gulp.task('watch', function() {
 	gulp.watch('src/jade/*.jade', ['jade']);
-	// add watch for .sass and .js files
-	gulp.watch('src/sass/*.sass', ['sass']);
 	gulp.watch('src/js/*.js', ['requireJS']);
+	
+	gulp.watch('src/sass/*.sass', ['sass']);
+	
 });
 
 gulp.task('default', ['requireJS', 'jade', 'sass', 'connect', 'watch']);
