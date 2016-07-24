@@ -6,6 +6,7 @@
  * chat history stores  in database chatMongoDB ( using MongoDB)
  */
 
+// initial const, variables etc
 const express = require("express"),
     bodyParser = require("body-parser"),
     mongoose = require("mongoose"),
@@ -22,6 +23,11 @@ app.use(bodyParser.urlencoded({    extended: false  }));
 
 // MongoDB initialize
 mongoose.connect("mongodb://localhost/chatMongoDB");
+let database = mongoose.connection;
+database.on("error", console.error.bind(console, "connection error:"));
+database.once("open", function callback () {
+    console.log("Connected!")
+});
 var schema = mongoose.Schema({
     name: String,
     text: String,
@@ -29,23 +35,30 @@ var schema = mongoose.Schema({
 });
 var Message = mongoose.model('messages', schema);
 
-var messages = [];
-
+// start: 	localhost:5554     			for Ajax and jQuery 
 app.get('/', function (req, res) {
 	res.sendfile(staticDir + 'index_jquery.html');
 });
 
+//	start: 	localhost:5554/sockets     	for using sockets
 app.get('/sockets', function (req, res) {
 	res.sendfile(staticDir + 'index_socket.html');
 });
 
+// GET  method for working with messages
 app.get('/messages', function (req, res) {
-	res.json(messages);
+
+	Message.find(function(err, msg) { 	// find list of all messages
+        if (err){
+			return console.error(err);
+		}
+        res.json(msg);
+    })
 });
 
+//  POST method for working with messages
 app.post('/messages', function (req, res) {
 	let message = req.body;
-	messages.push(message);
 	res.json(message);
 	
 	let messageForDB = new Message({
@@ -53,9 +66,10 @@ app.post('/messages', function (req, res) {
         text: message.text,
 		wasCreated: message.wasCreated
     });
-
     messageForDB.save(function(err, messageForDB) {
-        if (err) return console.error(err);
+        if (err){
+			return console.error(err);
+		}
     });
 });
 
@@ -67,7 +81,6 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('chat message', function(msg) {
-		messages.push(msg);
 		var messageForDB = new Message({
 			name: msg.name,
 			text: msg.text,
@@ -75,10 +88,18 @@ io.on('connection', function(socket) {
 		});
 
 		messageForDB.save(function(err, messageForDB) {
-			if (err) return console.error(err);
+			if (err){
+				return console.error(err);
+			}
 		});
 		io.emit('chat message', msg);
+
 	});
 
-	socket.emit('chat history', messages);
+	Message.find(function(err, msg) {
+        if (err){
+			return console.error(err);
+		}
+        socket.emit('chat history', msg);
+    })
 });
