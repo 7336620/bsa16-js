@@ -16,9 +16,16 @@ class ItemAdd extends React.Component {
     }
   }
   
+  // adding new handler for onClick
+  handleChange(event) {
+      this.setState({
+          name: event.target.value
+      });
+  }
+	
   render() {
     return (<div className="item-add">
-      <input id="userNameInput" type="text" placeholder="Enter new user name"/>
+      <input id="userNameInput" ref="refNameInput" type="text" onChange={this.handleChange} placeholder="Enter new user name"/>
       <button onClick={this.handleAddUser}>Add</button>
     </div>
     );
