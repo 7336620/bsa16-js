@@ -6,11 +6,15 @@ const initialState = {
 		{ name: 'Pam', uniqueID: 3 }
 	],
 	lastID: 3,
-	text: ""
+	text: "",
+	filterText: "",
+	filteredUsers:[]
 }
 
 
 export default function userListReducer(state = initialState, action) {
+	console.log("userListReducer");
+	console.log(action);
     switch (action.type) {
 	    case 'ADD_USER': {
             const {users, lastID} = action;
@@ -28,15 +32,14 @@ export default function userListReducer(state = initialState, action) {
         });
 			
         case 'FILTER_LIST': {
-            /*const {searchValue } = action;
-            return Object.assign({}, state,
-                {
-                    searchValue: searchValue
-                });*/
-			const {users} = action;
-            return Object.assign({}, state, {users: users});
-			return state;    
+            const { users ,filteredUsers, filterText} = action;
+            return Object.assign({}, state, {
+                users,
+                filteredUsers,
+				filterText
+            })   
         }	
+		
         default: {
             return state;        
         }

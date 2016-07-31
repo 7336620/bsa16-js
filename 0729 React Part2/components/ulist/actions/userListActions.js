@@ -25,13 +25,15 @@ export function setTextValue(text) {
     };
 }
 
-/*
-export function filterListAction(users) {
+
+export function filterListAction(filterParams) {
     const action = {
         type: 'FILTER_LIST',
-		users: users
+        users : filterParams.fullList,
+        filteredUsers: filterParams.filterList,
+		filterText: filterParams.filterText
     };
     return action;
 }
-*/
+
 

@@ -3,6 +3,21 @@ import ListItem from './listItem';
 
 // 3 variants of fast search
 
+//  working without filter 
+class ListView extends React.Component {  
+  render() {
+    return (
+		<div className="list-view">{
+			this.props.users.map(function(user) {
+                return <ListItem key={user.uniqueID} id={user.uniqueID} name={user.name} handleDelete={ this.props.handleDelete } />;
+            }, this)
+		}
+		</div>
+    );
+  }
+}
+
+/*
 // with filter , but not worked too (https://habrahabr.ru/post/229629/)
 class ListView extends React.Component {
 
@@ -28,7 +43,7 @@ class ListView extends React.Component {
 				</div>
     }
 }
-	
+	*/
 /*
 // with filter , but not worked
 class ListView extends React.Component {
@@ -59,20 +74,6 @@ class ListView extends React.Component {
  */
  
  
-//  working without filter 
-/*
-class ListView extends React.Component {  
-  render() {
-    return (
-		<div className="list-view">{
-			this.props.users.map(function(user) {
-                return <ListItem key={user.uniqueID} id={user.uniqueID} name={user.name} handleDelete={ this.props.handleDelete } />;
-            }, this)
-		}
-		</div>
-    );
-  }
-}*/
 
 
 export default ListView;
